@@ -1,0 +1,3 @@
+mmdetection3d/checkpoints/
+mmdeploy/deployed_models/
+**__pycache__**
