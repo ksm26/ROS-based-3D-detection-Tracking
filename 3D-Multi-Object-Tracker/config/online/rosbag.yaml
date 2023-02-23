@@ -1,0 +1,28 @@
+# dataset info
+save_path: 'evaluation/results/zoe'
+
+# tracking type
+tracking_type: "car"
+
+# KF parameters
+state_func_covariance: 100
+measure_func_covariance: 0.001
+prediction_score_decay: 0.03
+LiDAR_scanning_frequency: 10
+
+# max prediction number of state function
+# below parameters called in tracker/tracker.py
+# both of these values have to be increased to retain past trajectory 
+max_prediction_num: 100 # trajectory will be considered dead beyond this value
+max_prediction_num_for_new_object: 50
+
+# detection score threshold
+input_score: 0.45 #min threshold of obj sent to tracker
+init_score: 0.45 #min threshold for starting new trajectory
+update_score: 0.3 #min threshold for associating obj with existing trajectory
+post_score: 0
+
+# tracking latency (s)
+# -1: global tracking
+# 0.->500: online or near online tracking
+latency: -1 # tracker/trajectory.py
