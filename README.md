@@ -59,6 +59,7 @@ Had an error with rospy.init_node(): It was an error with ros packages installat
 
 Run the above yml using: 
 ```
+pip install scikit-build
 conda env update --file ros_python_environment.yml
 ```
 
