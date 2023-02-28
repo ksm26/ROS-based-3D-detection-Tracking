@@ -56,7 +56,10 @@ sudo apt-get install ros-melodic-jsk-visualization
 -----------------------------------------------------------------------------------------------------------------------------------------------
 Had an error with rospy.init_node(): It was an error with ros packages installation into conda environment. Have create a basic yml file for a ros environment.(File of environment) https://drive.google.com/file/d/13-W3iB0F1abQ4Db_VcEm87l_RWf15CmU/view 
 
-Run the above yml using: conda env update --file ros_python_environment.ymlsome\directory
+Run the above yml using: 
+```
+conda env update --file ros_python_environment.ymlsome\directory
+```
 
 import tf: Error
 Import tf does not work with python 3 as it is compiled for python 2. 
