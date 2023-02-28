@@ -58,7 +58,7 @@ Had an error with rospy.init_node(): It was an error with ros packages installat
 
 Run the above yml using: 
 ```
-conda env update --file ros_python_environment.ymlsome\directory
+conda env update --file ros_python_environment.yml
 ```
 
 import tf: Error
