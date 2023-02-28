@@ -25,7 +25,7 @@ mim install mmsegmentation
 
 5) Install mmdetection3d Documentation - https://mmdetection3d.readthedocs.io/en/latest/getting_started.html
 ```
-cd path_to_cloned_mmdetection3d
+cd mmdetection3d
 pip install -e .
 ```
 
@@ -34,9 +34,10 @@ Test by running a rosbag and subscribe to appropriate rostopics
 
 6) Install mmdeploy Documentation - https://github.com/open-mmlab/mmdeploy/blob/master/docs/en/get_started.md
 ```
-cd path_to_cloned_mmdeploy 
-Write - how to create .onnx and .engine file from checkpoint
+cd mmdeploy 
+pip install -e .
 ```
+Write - how to create .onnx and .engine file from checkpoint
 
 7) Install tf and jsk 
 Rostopic tf: http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20listener%20%28Python%29
