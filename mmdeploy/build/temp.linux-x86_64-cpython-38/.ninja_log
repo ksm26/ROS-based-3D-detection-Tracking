@@ -1,9 +1,0 @@
-# ninja log v5
-6	9604	1677578603151063411	/home/khushdeep/Documents/ROS-based-3D-detection-Tracking/mmdeploy/build/temp.linux-x86_64-cpython-38/csrc/mmdeploy/backend_ops/torchscript/optimizer/passes/onnx/onnx_peephole.o	95fe6cb4f794290d
-2	9760	1677578603303065081	/home/khushdeep/Documents/ROS-based-3D-detection-Tracking/mmdeploy/build/temp.linux-x86_64-cpython-38/csrc/mmdeploy/backend_ops/torchscript/optimizer/optimizer.o	e9f13f022bf86b21
-3	10178	1677578603723069696	/home/khushdeep/Documents/ROS-based-3D-detection-Tracking/mmdeploy/build/temp.linux-x86_64-cpython-38/csrc/mmdeploy/backend_ops/torchscript/optimizer/passes/onnx/common_subgraph_elimination.o	58e6fc3b40d1150
-5	10543	1677578604087073695	/home/khushdeep/Documents/ROS-based-3D-detection-Tracking/mmdeploy/build/temp.linux-x86_64-cpython-38/csrc/mmdeploy/backend_ops/torchscript/optimizer/passes/onnx/merge_shape_concate.o	7258293b28da017a
-4	11207	1677578604751080990	/home/khushdeep/Documents/ROS-based-3D-detection-Tracking/mmdeploy/build/temp.linux-x86_64-cpython-38/csrc/mmdeploy/backend_ops/torchscript/optimizer/passes/onnx/fuse_select_assign.o	ca8e44b1d033418
-4	11930	1677578605471088899	/home/khushdeep/Documents/ROS-based-3D-detection-Tracking/mmdeploy/build/temp.linux-x86_64-cpython-38/csrc/mmdeploy/backend_ops/torchscript/optimizer/passes/onnx/flatten_cls_head.o	9a76017f3275df2e
-1	15302	1677578608839125886	/home/khushdeep/Documents/ROS-based-3D-detection-Tracking/mmdeploy/build/temp.linux-x86_64-cpython-38/csrc/mmdeploy/backend_ops/torchscript/optimizer/ir/subgraph_matcher.o	b1c27c9ec1bbed6b
-0	23131	1677578616663211727	/home/khushdeep/Documents/ROS-based-3D-detection-Tracking/mmdeploy/build/temp.linux-x86_64-cpython-38/csrc/mmdeploy/backend_ops/torchscript/optimizer/bind.o	ff60ff366863331b

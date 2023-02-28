@@ -35,7 +35,7 @@ def parse_args():
     parser.add_argument('--img', help='image used to convert model model',
                         default='mmdetection3d/demo/data/nuscenes/n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151061547455.pcd.bin')
     parser.add_argument('--work-dir',
-                        default='mmdeploy/deployed_models/nuscenes/hv_pointpillars_fpn_sbn-all_fp16_2x8_2x_nus-3d_20201021_120719-269f9dd6-fp64',
+                        default='mmdeploy/deployed_models/nuscenes/hv_pointpillars_fpn_sbn-all_fp16_2x8_2x_nus-3d_20201021_120719-269f9dd6',
                         help='the dir to save logs and models')
 
     parser.add_argument(

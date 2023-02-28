@@ -42,6 +42,48 @@ def convert_SyncBN(config):
                                     replace('naiveSyncBN', 'BN')
             else:
                 convert_SyncBN(config[item])
+                
+def init_model(config, checkpoint=None, device='cuda:0'):
+    """Initialize a model from config file, which could be a 3D detector or a
+    3D segmentor.
+
+    Args:
+        config (str or :obj:`mmcv.Config`): Config file path or the config
+            object.
+        checkpoint (str, optional): Checkpoint path. If left as None, the model
+            will not load any weights.
+        device (str): Device to use.
+
+    Returns:
+        nn.Module: The constructed detector.
+    """
+    if isinstance(config, str):
+        config = mmcv.Config.fromfile(config)
+    elif not isinstance(config, mmcv.Config):
+        raise TypeError('config must be a filename or Config object, '
+                        f'but got {type(config)}')
+    config.model.pretrained = None
+    convert_SyncBN(config.model)
+    config.model.train_cfg = None
+    model = build_model(config.model, test_cfg=config.get('test_cfg'))
+    if checkpoint is not None:
+        checkpoint = load_checkpoint(model, checkpoint, map_location='cpu')
+        if 'CLASSES' in checkpoint['meta']:
+            model.CLASSES = checkpoint['meta']['CLASSES']
+        else:
+            model.CLASSES = config.class_names
+        if 'PALETTE' in checkpoint['meta']:  # 3D Segmentor
+            model.PALETTE = checkpoint['meta']['PALETTE']
+    model.cfg = config  # save the config in the model for convenience
+    if device != 'cpu':
+        torch.cuda.set_device(device)
+    else:
+        logger = get_root_logger()
+        logger.warning('Don\'t suggest using CPU device. '
+                       'Some functions are not supported for now.')
+    model.to(device)
+    model.eval()
+    return model
 
 class DetectionTracking:
     def __init__(self, args):

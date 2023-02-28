@@ -10,21 +10,15 @@ from mmdeploy.utils.config_utils import load_config
 from mmdeploy.utils.device import parse_device_id
 from mmdeploy.utils.timer import TimeCounter
 
+
 def parse_args():
     parser = argparse.ArgumentParser(
         description='MMDeploy test (and eval) a backend.')
-    parser.add_argument('--deploy_cfg', 
-                        default='mmdeploy/configs/mmdet3d/voxel-detection/voxel-detection_tensorrt_dynamic-nus-64x4.py',
-                        help='Deploy config path')
-    parser.add_argument('--model_cfg', 
-                        default='mmdetection3d/configs/pointpillars/hv_pointpillars_fpn_sbn-all_4x8_2x_nus-3d.py',
-                        help='Model config path')
-    parser.add_argument('--model', 
-        default=['mmdeploy/deployed_models/nuscenes/hv_pointpillars_fpn_sbn-all_fp16_2x8_2x_nus-3d_20201021_120719-269f9dd6/end2end.engine'],
-        type=str, nargs='+',help='Input model files.')
-    parser.add_argument('--out', 
-                        default='data/nuscenes_out.pkl',
-                        help='output result file in pickle format')
+    parser.add_argument('deploy_cfg', help='Deploy config path')
+    parser.add_argument('model_cfg', help='Model config path')
+    parser.add_argument(
+        '--model', type=str, nargs='+', help='Input model files.')
+    parser.add_argument('--out', help='output result file in pickle format')
     parser.add_argument(
         '--format-only',
         action='store_true',
@@ -32,7 +26,7 @@ def parse_args():
         'useful when you want to format the result to a specific format and '
         'submit it to the test server')
     parser.add_argument(
-        '--metrics', 
+        '--metrics',
         type=str,
         nargs='+',
         help='evaluation metrics, which depends on the codebase and the '
@@ -40,11 +34,11 @@ def parse_args():
         '"recall" for PASCAL VOC in mmdet; "accuracy", "precision", "recall", '
         '"f1_score", "support" for single label dataset, and "mAP", "CP", "CR"'
         ', "CF1", "OP", "OR", "OF1" for multi-label dataset in mmcls')
-    parser.add_argument('--show', default=False, action='store_true', help='show results')
+    parser.add_argument('--show', action='store_true', help='show results')
     parser.add_argument(
         '--show-dir', help='directory where painted images will be saved')
     parser.add_argument(
-        '--device', help='device used for conversion', default='cuda:0')
+        '--device', help='device used for conversion', default='cpu')
     parser.add_argument(
         '--cfg-options',
         nargs='+',
@@ -98,6 +92,7 @@ def parse_args():
     args = parser.parse_args()
     return args
 
+
 def main():
     args = parse_args()
     if args.out is not None and not args.out.endswith(('.pkl', '.pickle')):
@@ -119,7 +114,6 @@ def main():
     dataset = task_processor.build_dataset(model_cfg, dataset_type)
     # override samples_per_gpu that used for training
     model_cfg.data['samples_per_gpu'] = args.batch_size
-    
     data_loader = task_processor.build_dataloader(
         dataset,
         samples_per_gpu=model_cfg.data.samples_per_gpu,
@@ -133,12 +127,10 @@ def main():
 
     destroy_model = model.destroy
     model = MMDataParallel(model, device_ids=[device_id])
-
     # The whole dataset test wrapped a MMDataParallel class outside the module.
     # As mmcls.apis.test.py single_gpu_test defined, the MMDataParallel needs
     # a 'CLASSES' attribute. So we ensure the MMDataParallel class has the same
     # CLASSES attribute as the inside module.
-
     if hasattr(model.module, 'CLASSES'):
         model.CLASSES = model.module.CLASSES
     if args.speed_test:
@@ -153,8 +145,8 @@ def main():
             outputs = task_processor.single_gpu_test(model, data_loader,
                                                      args.show, args.show_dir)
     else:
-        outputs = task_processor.single_gpu_test(model, data_loader, args.show, args.show_dir)
-
+        outputs = task_processor.single_gpu_test(model, data_loader, args.show,
+                                                 args.show_dir)
     json_dir, _ = os.path.split(args.json_file)
     if json_dir:
         os.makedirs(json_dir, exist_ok=True)

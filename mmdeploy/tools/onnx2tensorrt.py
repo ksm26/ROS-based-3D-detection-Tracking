@@ -15,9 +15,9 @@ def parse_args():
     parser.add_argument('--deploy_cfg', help='deploy config path',
                         default='mmdeploy/configs/mmdet3d/voxel-detection/voxel-detection_tensorrt_dynamic-nus-64x4.py')
     parser.add_argument('--onnx_path', help='ONNX model path',
-                        default='mmdeploy/deployed_models/nuscenes/hv_pointpillars_regnet-1.6gf_fpn_sbn-all_4x8_2x_nus-3d_20200629_050311-dcd4e090/end2end.onnx')
+                        default='mmdeploy/deployed_models/nuscenes/hv_pointpillars_fpn_sbn-all_fp16_2x8_2x_nus-3d_20201021_120719-269f9dd6/end2end.onnx')
     parser.add_argument('--output_prefix', help='output TensorRT engine prefix',
-                        default='mmdeploy/deployed_models/nuscenes/hv_pointpillars_regnet-1.6gf_fpn_sbn-all_4x8_2x_nus-3d_20200629_050311-dcd4e090/temp.trt')
+                        default='mmdeploy/deployed_models/nuscenes/hv_pointpillars_fpn_sbn-all_fp16_2x8_2x_nus-3d_20201021_120719-269f9dd6/temp.trt')
 
     parser.add_argument('--device-id', help='`the CUDA device id', default=0)
     parser.add_argument(

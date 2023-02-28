@@ -1,11 +1,11 @@
 FROM nvcr.io/nvidia/tensorrt:22.04-py3
 
-ARG CUDA=11.6
-ARG PYTHON_VERSION=3.10
-ARG TORCH_VERSION=1.12.1
-ARG TORCHVISION_VERSION=0.13.1
-ARG ONNXRUNTIME_VERSION=1.13.1
-ARG MMCV_VERSION=1.7.0
+ARG CUDA=11.3
+ARG PYTHON_VERSION=3.8
+ARG TORCH_VERSION=1.10.0
+ARG TORCHVISION_VERSION=0.11.0
+ARG ONNXRUNTIME_VERSION=1.8.1
+ARG MMCV_VERSION=1.5.3
 ARG PPLCV_VERSION=0.7.0
 ENV FORCE_CUDA="1"
 
@@ -29,7 +29,7 @@ RUN apt-get update &&\
 
 RUN curl -fsSL -v -o ~/miniconda.sh -O  https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh  && \
     chmod +x ~/miniconda.sh && \
-    ~/miniconda.sh -b -p /opt/conda && \
+    bash ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh && \
     /opt/conda/bin/conda install -y python=${PYTHON_VERSION} conda-build pyyaml numpy ipython cython typing typing_extensions mkl mkl-include ninja && \
     /opt/conda/bin/conda clean -ya

@@ -21,12 +21,12 @@ def parse_args():
                         default='mmdetection3d/configs/pointpillars/hv_pointpillars_fpn_sbn-all_fp16_2x8_2x_nus-3d.py',
                         help='model config path')
     parser.add_argument('--checkpoint', 
-                        default='mmdetection3d/checkpoints/nuscenes/hv_pointpillars_regnet-1.6gf_fpn_sbn-all_4x8_2x_nus-3d_20200629_050311-dcd4e090.pth',
+                        default='mmdetection3d/checkpoints/nuscenes/hv_pointpillars_fpn_sbn-all_fp16_2x8_2x_nus-3d_20201021_120719-269f9dd6.pth',
                         help='model checkpoint path')
     parser.add_argument('--img', help='image (point-cloud) used to convert model model',
                         default='mmdetection3d/demo/data/nuscenes/n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151061547455.pcd.bin')
     parser.add_argument('--work-dir',
-                        default='mmdeploy/deployed_models/nuscenes/hv_pointpillars_regnet-1.6gf_fpn_sbn-all_4x8_2x_nus-3d_20200629_050311-dcd4e090', #os.getcwd(),
+                        default='mmdeploy/deployed_models/nuscenes/hv_pointpillars_fpn_sbn-all_fp16_2x8_2x_nus-3d_20201021_120719-269f9dd6',
                         help='the dir to save logs and models- should be same as ckpt name')
 
     parser.add_argument(
