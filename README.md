@@ -55,7 +55,7 @@ pip install nvidia-tensorrt
 python3 -m pip install --upgrade tensorrt
 ```
 -----------------------------------------------------------------------------------------------------------------------------------------------
-## Error
+## Additional installation
 Error with rospy.init_node(): An error with ros packages installation into conda environment.
 Run the above ros_python_environment.yml using: 
 ```
@@ -63,22 +63,38 @@ pip install scikit-build
 conda env update --file ros_python_environment.yml
 ```
 
-import tf: Error
-Import tf does not work with python 3 as it is compiled for python 2. 
-Solution: Recompile with python3 in catkin_workspace
-https://answers.ros.org/question/326226/importerror-dynamic-module-does-not-define-module-export-function-pyinit__tf2/
+import tf: Error\
+Import tf does not work with python 3 as it is compiled for python 2.
+Solution: [Recompile with python3 in catkin_workspace](https://answers.ros.org/question/326226/importerror-dynamic-module-does-not-define-module-export-function-pyinit__tf2/)\
 To be able to work with python interpreter (pycharm,visual studio) add the compile path as below:
-Example:sys.path.append("/home/khushdeep/Desktop/ROS-tracker/catkin_ws/src:/opt/ros/melodic/share")
+```
+sys.path.append("~/Desktop/ROS-tracker/catkin_ws/src:/opt/ros/melodic/share")
+```
 
-After tf installation and creation of new catkin workspace: 
-Run 
+Source catkin envrionment after tf installation and creation of new catkin workspace
 ```
 source ~/catkin_ws/devel/setup.bash
 ```
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
-## Testing 
-Download the checkpoint from 3D-detection [model-zoo](https://github.com/open-mmlab/mmdetection3d/blob/master/docs/en/model_zoo.md)
+## Benchmark and Model Zoo
+Download the checkpoint for 3D-detection [model-zoo](https://github.com/open-mmlab/mmdetection3d/blob/master/docs/en/model_zoo.md). This repository evaluates the performance of [Pointpillars](https://github.com/open-mmlab/mmdetection3d/tree/master/configs/pointpillars) and [Regnet](https://github.com/open-mmlab/mmdetection3d/tree/master/configs/regnet) models pretrained on nuScences dataset. \
 Test by running a rosbag and subscribe to appropriate rostopics 
+```
+rosbag play rosbag_name.bag
+python3 mmdetection3d/demo/pcd_demo_class.py
+```
 
-Write - how to create .onnx and .engine file from checkpoint
+Convert the checkpoint into ONNX file and than to tensorRT .engine file
+```
+python3 mmdeploy/tools/deploy.py
+```
+ONNX file can be visualized using [NETRON](https://github.com/lutzroeder/netron).
+
+## Licence
+This project is released under the [Apache 2.0 license](https://github.com/ksm26/ROS-based-3D-detection-Tracking/blob/main/LICENSE).
+
+## Reference 
+- [MMDetection3D](https://github.com/open-mmlab/mmdetection3d): OpenMMLab's next-generation platform for general 3D object detection.
+- [MMDeploy](https://github.com/open-mmlab/mmdeploy): OpenMMLab model deployment framework.
+- [3D-Multi-Object-Tracker](https://github.com/hailanyi/3D-Multi-Object-Tracker): Tracking multiple objects in 3D scene.
