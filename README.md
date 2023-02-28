@@ -66,10 +66,14 @@ To be able to work with python interpreter (pycharm,visual studio) add the compi
 Example:sys.path.append("/home/khushdeep/Desktop/ROS-tracker/catkin_ws/src:/opt/ros/melodic/share")
 
 After tf installation and creation of new catkin workspace: 
-Run source ~/catkin_ws/devel/setup.bash
+Run 
+```
+source ~/catkin_ws/devel/setup.bash
+```
 
 8) Install tensorrt 
+```
 pip install nvidia-tensorrt
 python3 -m pip install --upgrade tensorrt
-
+```
 
