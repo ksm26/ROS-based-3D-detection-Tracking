@@ -1,3 +1,5 @@
 mmdetection3d/checkpoints/
 mmdeploy/deployed_models/
 **__pycache__**
+**.egg-info/
+**.eggs/
