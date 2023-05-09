@@ -8,8 +8,8 @@ conda activate rosdeploy
 ```
 
 2) Install pytorch 
-```
 conda install pytorch from https://pytorch.org/ according to cuda version or lower for eg. 
+```
 conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge
 ```
 
