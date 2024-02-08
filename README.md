@@ -8,20 +8,20 @@
 </p>
 
 <p align="center">
-  <em class="caption">Scenario 1: Detecting multiple objects in the scene</em>
-  <em class="caption">Scenario 2: Accurately retaining detection and track ids</em>
+  <em class="caption"><strong>Scenario 1:</strong> Detecting multiple objects in the scene</em>
+  <em class="caption"><strong>Scenario 2:</strong> Accurately retaining detection and track ids</em>
 </p>
 
 <p align="center">
   <img src="images/4.gif" width="280" height="240" alt="Image 3 Description">
   <br>
-  <em> Sceanrio 3 : Detecting objects in the reverse direction </em>
+  <em> <strong>Scenario 3:</strong> Detecting objects in the reverse direction </em>
 </p>
 
 <p align="center">
   <img src="images/5.gif" width="700" height="300" alt="Image 4 Description">
   <br>
-  <em> Sceanrio 4 : Detecting a virtual vehicle on point-cloud data </em>
+  <em> <strong>Scenario 4:</strong> Detecting a virtual vehicle on point-cloud data </em>
 </p>
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
@@ -33,8 +33,8 @@
 </p>
 
 <p align="center">
-  <em class="caption"> Scene : Pointpillar + Regnet</em>
-  <em class="caption"> Scene : Pointpillar (TensorRT)</em>
+  <em class="caption"><strong>Scene:</strong> Pointpillar + Regnet</em>
+  <em class="caption"> <strong>Scene:</strong> Pointpillar (TensorRT)</em>
 </p>
 
 
