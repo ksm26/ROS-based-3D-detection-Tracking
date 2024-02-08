@@ -91,26 +91,48 @@ python3 mmdeploy/tools/deploy.py
 ```
 ONNX file can be visualized using [NETRON](https://github.com/lutzroeder/netron).
 
-## Real-time implementation results
-1) Sceanrio 1 : Detecting multiple objects in the scene
+## Implementation results on rosbags
+
 <p align="center">
-<img src="images/2.gif" width="350" height="300"> 
+  <img src="images/2.gif" width="280" height="240" alt="Image 1 Description">
+  <img src="images/3.gif" width="280" height="240" alt="Image 2 Description">
 </p>
 
-2) Sceanrio 2 : Accurately retaining detection and track ids
 <p align="center">
-<img src="images/3.gif" width="350" height="300"> 
+  <em class="caption">Scenario 1: Detecting multiple objects in the scene</em>
+  <em class="caption">Scenario 2: Accurately retaining detection and track ids</em>
 </p>
 
-3) Sceanrio 3 : Detecting objects in the reverse direction
 <p align="center">
-<img src="images/4.gif" width="350" height="300"> 
+  <img src="images/4.gif" width="280" height="240" alt="Image 3 Description">
+  <br>
+  <em> Sceanrio 3 : Detecting objects in the reverse direction </em>
 </p>
 
-4) Sceanrio 4 : Detecting a virtual vehicle on point-cloud data
 <p align="center">
-<img src="images/5.gif" width="700" height="300"> 
+  <img src="images/5.gif" width="700" height="300" alt="Image 4 Description">
+  <br>
+  <em> Sceanrio 4 : Detecting a virtual vehicle on point-cloud data </em>
 </p>
+
+## Deployment results 
+
+<p align="center">
+  <img src="images/6.gif" width="280" height="240" alt="Image 6 Description">
+  <img src="images/7.gif" width="280" height="240" alt="Image 7 Description">
+</p>
+
+<p align="center">
+  <em class="caption"> Scene : Pointpillar + Regnet</em>
+  <em class="caption"> Scene : Pointpillar (TensorRT)</em>
+</p>
+
+
+| Backbone | mAP (nuScenes) | FPS | Memory (GPU) |
+| --------------- | --------------- | --------------- | --------------- |
+| **[Pointpillars](https://github.com/open-mmlab/mmdetection3d/tree/1.0/configs/pointpillars)**    | 39.26    | 8.88  | 3.5 Gb |
+| **Pointpillars (TensorRT)**    | ----    | **15.15**    | 4.5 Gb |
+| **Pointpillar + [Regnet](https://github.com/open-mmlab/mmdetection3d/tree/1.0/configs/regnet)**    | **48.2**    | 7.76    | 3.5 Gb |
 
 ## Licence
 This project is released under the [Apache 2.0 license](https://github.com/ksm26/ROS-based-3D-detection-Tracking/blob/main/LICENSE).
